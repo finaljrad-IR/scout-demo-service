@@ -18,6 +18,9 @@ RUN  apk add --no-cache npm \
  
 COPY . /app
 
+RUN adduser -D -u 1000 appuser && chown -R 1000:1000 /app
+USER 1000
+
 CMD ["node","/app/app.js"]
 
 EXPOSE 3000
